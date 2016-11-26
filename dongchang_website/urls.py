@@ -15,7 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from home import views as home_views
+from blog import views as blog_views
+from read_book import views as read_views
+from message import views as message_views
+from history import views as history_views
+from interest import views as interest_views
 
 urlpatterns = [
+    url(r'^$', home_views.home, name='my_home'),
+    url(r'^blog/$', blog_views.index, name='blog_home'),
+    url(r'^read/$', read_views.index, name='read_home'),
+    url(r'^interest/$', interest_views.index, name='intrest_home'),
+    url(r'^message/$', message_views.index, name='message_home'),
+    url(r'^history/$', history_views.index, name='history_home'),
     url(r'^admin/', admin.site.urls),
 ]
